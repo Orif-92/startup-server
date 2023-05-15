@@ -36,7 +36,7 @@ export class MailService {
     const emailData = {
       to: email,
       subject: 'Verification email',
-      from: 'no-reply@sammi.ac',
+      from: 'studentsmernbootcamp@gmail.com',
       html: `
 				<h1>Verification Code: ${otp}</h1>
 			`,

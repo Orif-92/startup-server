@@ -18,6 +18,12 @@ export class InstructorService {
     const existUser = await this.userModel.findOne({ email });
     user = existUser;
 
+    if(user) {
+      await this.userModel.findByIdAndUpdate(user._id, {
+        $set: {job, fullName: `${firstName} ${lastName}`},
+      });
+    }
+
     if (!existUser) {
       const newUser = await this.userModel.create({ ...dto, fullName: `${firstName} ${lastName}` });
       user = newUser;
